@@ -1,0 +1,44 @@
+
+<% include ../partials/header.ejs %>
+<button type="submit" class="btn btn-primary float-left"><a href="/addDepartment" class="buttonLink">Add department</a></button>
+    <div class="table-wrapper">
+        <% if (department.length > 0) {%>
+            <table class="table table-hovered">
+                <thead class="thead-dark" id="departmenHeader">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Customers</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+
+                      
+                    </tr>
+                </thead>
+                <tbody>
+                    <% department.forEach((department, index) => { %>
+                        <tr>
+                            <th scope="row"><%= department.departmentID %></th>
+                            <td><%= department.departmentName %></td>
+                            <% customer.forEach((c, index) => { %>
+                                <% if (c.departmentID == department.departmentID) { %>
+                                        <td id ="customerTD"><%= c.customerName %></td>
+                                <% } %>
+                            <% }) %>
+                            <td></td>
+                            
+                            <td>
+                                <a href="/deleteDepartment/<%= department.departmentID %>" class="btn btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p class="text-center">No Customer found. Go <a href="/addDepartment" >here</a> to add Department.</p>
+        <% } %>
+    </div>
+</div>
+</body>
+</html>
+

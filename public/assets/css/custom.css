@@ -1,0 +1,80 @@
+
+
+#logo {
+    height:70px;
+    width: 300px;
+    margin-left: 24%;
+}
+
+.navLinks {
+    color: black;
+    display: block;
+    margin-right: - 100px;
+}
+
+#departmentMenuDiv {
+    border-top: 1px solid black;
+    width: 100%;
+    text-align: center;
+    font-size: 150%;
+}
+
+
+#departmentMenu {
+    color:black;
+    margin: 100px;
+   
+}
+
+#departmentMenu:hover {
+    color:blue;
+    text-decoration: none;
+}
+
+#customerImage {
+    width: 140px;
+    height: 70px;
+    border-radius: 10px; 
+}
+
+.editAndDelete {
+    float: right;
+}
+
+tr:nth-child(even) {
+    background: #EFEFF0;
+}
+tr:nth-child(odd) {
+    background: white,
+}
+
+.buttonLink {
+
+    color: white;
+}
+
+
+
+#sumOrders td {
+    font-weight: bold; 
+}
+
+
+
+#departmentPageDepartmentName {
+    font-weight: bold;
+}
+
+.departmentDelete {
+    float: right;
+    color:blue;
+    border-radius: 10px;
+    width: 150px;
+    height: 50px;;
+}
+
+
+#customerTD {
+    width: 100%;
+    float: left;
+}

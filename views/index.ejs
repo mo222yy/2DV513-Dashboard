@@ -1,0 +1,51 @@
+<% include partials/header.ejs %>
+    <div id="departmentMenuDiv">
+        <% department.forEach((department, index) => { %>
+        <a href="/showOrders/:<%=department.departmentID%>" id="departmentMenu"><%=department.departmentName%></a>
+        <% }) %>
+    </div>
+    <div class="table-wrapper">
+        <% if (Customer.length > 0) {%>
+            <table class="table table-hovered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Department</th>
+                        <th scope="col">Image</th>
+                        <th scope="col">Customer</th>
+                        <th scope="col">Open</th>
+                        <th scope="col">Rest</th>
+                        <th scope="col">Abroad</th>
+                        <th scope="col">Orderlines</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% Customer.forEach((Customer, index) => { %>
+                        <tr>
+                            <th scope="row"><%= Customer.departmentName %></th>
+                            <td><img src="/assets/img/<%= Customer.customerImage %>" id="customerImage"  alt=""></td>
+                            <td><%= Customer.customerName %></td>
+                            <td><%= Customer.customerOpenOrders %></td>
+                            <td><%= Customer.customerRestOrders %></td>
+                            <td><%= Customer.customerAbroadOrders%></td>
+                            <td><%= Customer.customerOpenOrderLines%></td>
+                           
+                        </tr>
+                    <% }) %>
+                    <tr id="sumOrders">
+                        <td></td>
+                        <td></td>
+                        <td>TOTAL</td>
+                        <td><%= sumOpenOrders%></td>
+                        <td><%= sumRestOrders%></td>
+                        <td><%= sumAbroadOrders%></td>
+                        <td><%= sumOrderLines%></td>
+                        <td><%= %></td>
+                    </tr>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p class="text-center">No Customer found. Go <a href="/add" >here</a> to add Customer.</p>
+        <% } %>
+    </div>
+</div>

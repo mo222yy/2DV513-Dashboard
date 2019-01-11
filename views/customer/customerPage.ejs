@@ -1,0 +1,31 @@
+<% include ../partials/header.ejs %>
+
+<button type="button" class="btn btn-primary"><a href="/customer/add" class="buttonLink">Add customer</a></button>
+
+<% if (customers.length > 0) {%>
+    <table class="table table-hovered">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Customer</th>
+                    <th scope="col">Customer ID</th>
+                    <th scope="col">Department</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% customers.forEach((customer, index) => { %>
+                    <tr>
+                        <th scope="row"><%= customer.customerName %></th>
+                        <td><%=  customer.customerID %></td>
+                        <td><%=  customer.departmentName %></td>
+                      
+                        <td class="editAndDelete">
+                            <a href="/customer/edit/<%= customer.customerID %>"  rel="noopener" class="btn btn-sm btn-success">Edit</a>
+                            <a href="/delete/<%= customer.customerID %>" class="btn btn-sm btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                <% }) %>
+
+    <% } else { %>
+        <p class="text-center">No Customer found. Go <a href="/add" >here</a> to add Customer.</p>
+    <% } %>

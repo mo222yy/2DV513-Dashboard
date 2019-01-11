@@ -1,0 +1,28 @@
+<% include ../partials/header.ejs %>
+<div class="container">
+    <% if (message) { %>
+        <p class="text-center text-danger"><%= message %></p>
+    <% } %>
+
+    <% if (Customer) { %>
+        <form class="editCustomerForm" action="" method="post" enctype="multipart/form-data">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="customerID">Customer ID</label>
+                    <input type="text" class="form-control" name="customerID" id="customerID" Customer ID Customer.customerID %>" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="customerName">Customer Name</label>
+                    <input type="text" class="form-control" name="customerName" id="customerName" Customer Name player.customerName %>" required>
+                </div>
+             
+            </div>
+            <button type="submit" class="btn btn-success float-right">Update Customer</button>
+        </form>
+    <% } else { %>
+        <p class="text-center">Customer Not Found. Go <a href="/customer/add">here</a> to add Customer.</p>
+    <% } %>
+</div>
+</div>
+</body>
+</html>
